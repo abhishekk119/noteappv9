@@ -114,17 +114,22 @@ function restoreCheckboxes(contentDiv) {
   const lastCheckboxDiv = lastCheckbox.parentNode;
   const note = contentDiv.closest(".note");
 
-  // Create a new paragraph after the last checkbox
-  const paragraph = document.createElement("p");
-  paragraph.contentEditable = note?.classList.contains("expanded") || false;
-  paragraph.textContent = "...";
-  paragraph.classList.add("paragraph");
+  // Only create a new paragraph if there isn't one already after the last checkbox
+  if (
+    !lastCheckboxDiv.nextElementSibling ||
+    !lastCheckboxDiv.nextElementSibling.classList.contains("paragraph")
+  ) {
+    const paragraph = document.createElement("p");
+    paragraph.contentEditable = note?.classList.contains("expanded") || false;
+    paragraph.textContent = "...";
+    paragraph.classList.add("paragraph");
 
-  // Insert the paragraph after the last checkbox's div
-  lastCheckboxDiv.parentNode.insertBefore(
-    paragraph,
-    lastCheckboxDiv.nextSibling
-  );
+    // Insert the paragraph after the last checkbox's div
+    lastCheckboxDiv.parentNode.insertBefore(
+      paragraph,
+      lastCheckboxDiv.nextSibling
+    );
+  }
 }
 
 export function loadNotesFromStorage() {
