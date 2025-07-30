@@ -55,6 +55,10 @@ export function handleCheckboxAdding(notebody) {
     }
   });
 
+  if (textspan.classList.contains("checked-item")) {
+    checkbox.checked = true;
+  }
+
   textspan.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
