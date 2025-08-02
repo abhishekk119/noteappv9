@@ -13,7 +13,7 @@ body {
 .logodiv {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   width: 100%;
   height: auto;
   margin: 0;
@@ -514,6 +514,7 @@ body.backdrop-visible {
 }
 
 .wrapper {
+   position: fixed;
    font-family: "Inter", sans-serif;
    background: #fafafa;
    display: flex;
@@ -577,7 +578,15 @@ body.backdrop-visible {
 
 /* Media Queries for Mobile Responsiveness */
 @media only screen and (max-width: 768px) {
-  /* Adjust the main container and note input area */
+  .logodiv {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+	
   .container {
     width: 100%;
     padding: 0 10px;
