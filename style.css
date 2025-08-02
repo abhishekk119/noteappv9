@@ -513,6 +513,68 @@ body.backdrop-visible {
   display: none;
 }
 
+.wrapper {
+   font-family: "Inter", sans-serif;
+   background: #fafafa;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   width: 100%;
+   gap: 10px;
+}
+         
+.logostart {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   animation: pulse 2s infinite;
+}
+         
+.loadingslate p {
+   animation: pulse 2s infinite;
+   animation-delay: 0.2s;
+   margin: 0;
+   font-family: Arial, sans-serif;
+   font-size: 18px;
+   color: #333;
+   text-align: center;
+}
+        
+@keyframes pulse {
+   0% { transform: scale(1); opacity: 1; }
+   50% { transform: scale(1.05); opacity: 0.8; }
+   100% { transform: scale(1); opacity: 1; }
+}
+        
+.loading-container {
+   width: 300px;
+   margin: 0 auto;
+   font-family: Arial, sans-serif;
+}
+        
+.loading-bar {
+   width: 100%;
+   height: 20px;
+   background-color: #f0f0f0;
+   border-radius: 10px;
+   overflow: hidden;
+   margin-bottom: 8px;
+}
+        
+.progress {
+   height: 100%;
+   width: 0%;
+   background-color: black;
+   transition: width 0.1s linear;
+}
+        
+.percentage {
+   text-align: center;
+   font-size: 16px;
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media only screen and (max-width: 768px) {
   /* Adjust the main container and note input area */
