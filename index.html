@@ -17,10 +17,22 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <title>My Notes</title>
+    <title>Slate</title>
   </head>
   <body>
-    <div class="container">
+  	<div class="wrapper" id="wrapper">
+        <div class="logostart"><img src="lion.png" width="50" height="50"></div>
+        <div class="loadingslate"><p>&nbsp&nbsp&nbsp&nbsp&nbspLoading Slate...</p></div>
+        <div class="loading-container">
+            <div class="loading-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="percentage" id="percentage">0%</div>
+        </div>
+    </div>
+    
+    <div class="wrapper2" id="wrapper2" style="display: none">
+    <div class="container" id="container">
       <div class="logodiv">
     	    <div class="logo"><img src="lion.png" width="45px" height="45px"><h1 class="typewriter">Slate.</h1></div>
       </div>
@@ -56,7 +68,36 @@
       <div class="color-trigger"></div>
     </div>
     <div id="backdrop"></div>
+    </div>
+    
+    
+    <script>
+        const progressBar = document.getElementById('progress');
+        const percentageText = document.getElementById('percentage');
+        const wrapper = document.getElementById('wrapper');
+        const wrapper2 = document.getElementById('wrapper2');
+        const duration = 4000; // 4 seconds in milliseconds
+        const interval = 40; // update every 40ms for smooth animation
+        const steps = duration / interval;
+        let currentStep = 0;
 
+        const animate = () => {
+            if (currentStep <= steps) {
+                const progress = Math.min((currentStep / steps) * 100, 100);
+                progressBar.style.width = `${progress}%`;
+                percentageText.textContent = `${Math.round(progress)}%`;
+                currentStep++;
+                setTimeout(animate, interval);
+            } else {
+                // When loading completes
+                wrapper.style.display = 'none';
+                wrapper2.style.display = 'block';
+            }
+        };
+
+        // Start the animation
+        animate();
+    </script>
     <script type="module" src="note-creation.js"></script>
   </body>
 </html>
