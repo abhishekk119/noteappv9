@@ -1,6 +1,10 @@
 body {
   font-family: "Inter", sans-serif;
-  background: #fafafa;
+  background-image: url('bgone.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+	
 }
 
 .container {
