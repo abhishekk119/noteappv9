@@ -1,10 +1,10 @@
 body {
   font-family: "Inter", sans-serif;
   background-image: url('bgone.jpg');
-  background-size: cover;
+  background-size: contain; /* or 'auto' */
   background-repeat: no-repeat;
   background-position: center;
-	
+  background-attachment: fixed; /* prevents scrolling */
 }
 
 .container {
